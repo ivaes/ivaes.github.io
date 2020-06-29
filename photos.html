@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html> 
+
+<head>
+  <title>Li world photos</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel=stylesheet type=text/css href="style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/tec1bmf.css">
+</head>
+
+<body>
+<DIV id="inner_page" class="wrap clear">
+		<div class="row">
+		<!-- left_col -->
+		<div class="left_col">
+			<div class="stick">
+				<!-- logo -->
+				<div class="clear">
+					<div class="logo"><a href="index.html">Li</a></div>
+				</div>
+				<!-- /logo -->
+				<!-- menu -->
+				<div class="menu clear">
+				  	<a class="h_font active">Photos</a>
+				  	<!-- sub_menu -->
+				  	<div class="sub_menu">
+				  		<a class="h_font" onclick="sort()">Nature</a>
+				  		<a class="h_font" href="">Architecture</a>
+				  		<a class="h_font" href="">People</a>
+				  	</div>
+				  	<!-- sub_menu -->
+				  	<a class="h_font" href="designs.html">Designs</a>
+				  	<!-- sub_menu -->
+				  	<div class="sub_menu">
+				  		<a class="h_font" href="">Sites</a>
+				  		<a class="h_font" href="">Apps</a>
+				  	</div>
+				  	<!-- sub_menu -->				  	
+				  	<a class="h_font" href="blog.html">Blog</a>
+				  	<a class="h_font" href="about.html">About me</a>
+				</div>
+				<!-- /menu -->	
+				<!-- contacts -->
+				<div class="clear insta">
+					<div class="svg">
+						<a href="https://www.instagram.com/li_work/">
+							<svg>
+							  <rect rx="7"/>
+							  <rect rx="6"/>
+							  <rect rx="1.75"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<!-- /contacts -->		
+			</div>
+		</div>
+		<!-- /left_col -->
+		<!-- right_col -->
+		<div class="right_col">
+			<div class="inner pics_list">
+				<div onclick="goBig(this)" class="nature">
+					<img src="images/thumbs/_MG_8287.jpg" data-src="images/pics/_MG_8287.jpg" alt="Norway. Seaside.">
+				</div>
+				<div data-src="images/pics/_MG_8287.jpg" alt="Norway. Seaside." onclick="goBig(this)" class="nature">
+					<img src="images/thumbs/_MG_8287.jpg">
+				</div>
+				<div data-src="images/pics/_MG_8412.jpg" alt="Kristiansand. Old house." onclick="goBig(this)" class="vert architecture">
+					<img src="images/thumbs/_MG_8412.jpg">
+				</div>
+				<div data-src="images/pics/_MG_8287.jpg" alt="Norway. Seaside." onclick="goBig(this)" class="nature">
+					<img src="images/thumbs/_MG_8287.jpg">
+				</div>				
+				<div data-src="images/pics/_MG_8508.jpg" alt="Kristiansand. Fish market." onclick="goBig(this)" class="vert people">
+					<img src="images/thumbs/_MG_8508.jpg">
+				</div>
+				<div data-src="images/pics/_MG_7621.jpg" alt="Björbek. Riverside house sitting area." onclick="goBig(this)">
+					<img src="images/thumbs/_MG_7621.jpg">
+				</div>
+				<div data-src="images/pics/_MG_7444.jpg" alt="Oslo. Old city street." onclick="goBig(this)" class="vert">
+					<img src="images/thumbs/_MG_7444.jpg">
+				</div>
+				<div data-src="images/pics/_MG_8412.jpg" alt="Kristiansand. Old house." onclick="goBig(this)" class="vert">
+					<img src="images/thumbs/_MG_8412.jpg">
+				</div>
+				<div data-src="images/pics/_MG_7621.jpg" alt="Björbek. Riverside house sitting area." onclick="goBig(this)">
+					<img src="images/thumbs/_MG_7621.jpg">
+				</div>
+				<div data-src="images/pics/_MG_8508.jpg" alt="Kristiansand. Fish market." onclick="goBig(this)" class="vert">
+					<img src="images/thumbs/_MG_8508.jpg">
+				</div>
+				<div data-src="images/pics/_MG_8508.jpg" alt="Kristiansand. Fish market." onclick="goBig(this)" class="vert">
+					<img src="images/thumbs/_MG_8508.jpg">
+				</div>
+				<div data-src="images/pics/_MG_8508.jpg" alt="Kristiansand. Fish market." onclick="goBig(this)" class="vert">
+					<img src="images/thumbs/_MG_8508.jpg">
+				</div>
+				<!-- BigPhoto -->
+				<div id="BigPhoto" class="modal">
+					<span class="close">↷</span>
+					<img class="modal_content" id="modal_pic">
+					<p id="caption"></p>
+				</div>
+				<!-- /BigPhoto -->
+			</div>
+		</div>			
+		<!-- /right_col -->		
+	</div>
+</DIV>
+<script type="text/javascript" src="js.js"></script>
+</body>
+</html>
