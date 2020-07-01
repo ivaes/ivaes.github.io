@@ -5,7 +5,6 @@ var modal = document.getElementById("BigPhoto");
 //var pic = document.getElementById("myImg");
 
 var modalImg = document.getElementById("modal_pic");
-
 var captionText = document.getElementById("caption");
 
 //pic.onclick = function() {
@@ -14,66 +13,56 @@ var captionText = document.getElementById("caption");
 //}
 
 function goBig2(el) {
-  x = el.getAttribute("data-src");
+  const x = el.getAttribute("data-src");
   el.setAttribute("src", x);
-
-  el.setAttribute("class", "vert gobig");
- console.log(el.src);
+  el.classList.add('vert');
+  el.classList.add('gobig');
 }
 
 function goBig(el) {
   //var mini_pic = HTMLElementObject.src;
   modal.style.display = "flex";
-  x = el.querySelector('img').getAttribute("data-src");
+  const x = el.querySelector('img').getAttribute("data-src");
   modalImg.setAttribute("src", x);
-  y = el.querySelector('img').getAttribute("alt");
+  const y = el.querySelector('img').getAttribute("alt");
   captionText.innerHTML = y;
   document.querySelector('.right_col').classList.add('modal_mode');
 }
 
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.querySelector(".close");
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
+span && (span.onclick = function() { 
   modal.style.display = "none";
   document.querySelector('.right_col').classList.remove('modal_mode');
-}
+});
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modalImg || event.target == modal) {
     modal.style.display = "none";
     document.querySelector('.right_col').classList.remove('modal_mode');
   }
 }
 
-
-
-
-
-
 function sort(z) {
-                      var x = document.getElementsByClassName(z);
-                      console.log(x[0]);
-                      var i;
-                      for (i = 0; i < x.length; i++) { 
-                        x[i].style.opacity = "0";
-                        
-                      }
-                      
+  var x = document.getElementsByClassName(z);
+  console.log(x[0]);
+  var i;
+
+  for (i = 0; i < x.length; i++) { 
+    x[i].style.opacity = "0";
+  }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+document.addEventListener("DOMContentLoaded", function(event) { 
+  document.querySelector('.blog') && window.addEventListener('scroll', function(event) {
+    if (window.pageYOffset > 0) {
+      // scrolled
+    } else {
+      // not scrolled
+    }
+  });
+});
