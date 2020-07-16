@@ -36,7 +36,7 @@ for ($i = $total - 1; $i >= 0; --$i) {
 unset($year); unset($month); unset($day);
 $template = file_get_contents("templates/blog.html");
 
-function menu ($year, $month, $day, $minYear, $maxYear) {
+function menu ($year, $month, $day, $minYear, $maxYear, $data) {
   $monthDict = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
   $menu = "<p class=\"h_font dates\">";
 
@@ -50,7 +50,6 @@ function menu ($year, $month, $day, $minYear, $maxYear) {
 
   for ($m = 0; $m < 12; ++$m) {
     $pm = padlen($m + 1);
-    echo "CHECK $pm => $month\n";
     $active = $pm == $month ? " class=\"active\"" : "";
     $url = isset($data[$year][$pm]) ? $data[$year][$pm]["url"] : "";
     $menu .= "<a$active href=\"$url\">{$monthDict[$m]}</a>";
@@ -81,7 +80,7 @@ foreach ($data as $year => $yearV) {
       }
 
       $filename = createLink($year, $month, $day);
-      file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear), $template)));
+      file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear, $data), $template)));
 
       echo "Generating $filename\n";
     }
