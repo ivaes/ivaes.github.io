@@ -1,7 +1,7 @@
 <?php
 
 function createLink ($year, $month, $day) {
-  return "blog/$year-$month-$day.html";
+  return "blog-$year-$month-$day.html";
 }
 
 function padlen ($s) {
@@ -15,13 +15,14 @@ $data = [];
 $minYear = 0;
 $maxYear = 0;
 $total = count($fileList);
+$indexFile = '';
 
 for ($i = $total - 1; $i >= 0; --$i) {
   $year = substr($fileList[$i], 10, 4);
   $month = substr($fileList[$i], 14, 2);
   $day = substr($fileList[$i], 16, 2);
   $url = createLink($year, $month, $day);
-  $i == 0 && ($minYear = $year);
+  $i == 0 && ($minYear = $year) && ($indexFile = createLink($year, $month, $day));
   $i == $total - 1 && ($maxYear = $year);
 
   ! isset($data[$year]) && ($data[$year]["url"] = $url);
@@ -49,10 +50,10 @@ function menu ($year, $month, $day, $minYear, $maxYear) {
 
   for ($m = 0; $m < 12; ++$m) {
     $pm = padlen($m + 1);
+    echo "CHECK $pm => $month\n";
     $active = $pm == $month ? " class=\"active\"" : "";
     $url = isset($data[$year][$pm]) ? $data[$year][$pm]["url"] : "";
-    $month = $monthDict[$m];
-    $menu .= "<a$active href=\"$url\">$month</a>";
+    $menu .= "<a$active href=\"$url\">{$monthDict[$m]}</a>";
   }
 
   $menu .= "</p><p class=\"h_font dates\">";
@@ -79,7 +80,14 @@ foreach ($data as $year => $yearV) {
         continue;
       }
 
-      file_put_contents(createLink($year, $month, $day), str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear), $template)));
+      $filename = createLink($year, $month, $day);
+      file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear), $template)));
+
+      echo "Generating $filename\n";
     }
   }
 }
+
+copy($indexFile, "blog.html");
+echo "Creating index file\n";
+echo "DONE\n";
