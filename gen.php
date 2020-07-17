@@ -79,8 +79,8 @@ foreach ($data as $year => $yearV) {
         continue;
       }
 
-      echo "Generating $filename\n";
       $filename = createLink($year, $month, $day);
+      echo "Generating $filename\n";
       file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear, $data), $template)));
     }
   }
