@@ -9,33 +9,6 @@ function padlen ($s) {
   return $s;
 }
 
-$fileList = glob("blog/data/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
-sort($fileList);
-$data = [];
-$minYear = 0;
-$maxYear = 0;
-$total = count($fileList);
-$indexFile = '';
-
-for ($i = $total - 1; $i >= 0; --$i) {
-  $year = substr($fileList[$i], 10, 4);
-  $month = substr($fileList[$i], 14, 2);
-  $day = substr($fileList[$i], 16, 2);
-  $url = createLink($year, $month, $day);
-  $i == 0 && ($minYear = $year) && ($indexFile = createLink($year, $month, $day));
-  $i == $total - 1 && ($maxYear = $year);
-
-  ! isset($data[$year]) && ($data[$year]["url"] = $url);
-  ! isset($data[$year][$month]) && ($data[$year][$month]["url"] = $url);
-  $data[$year][$month][$day] = [
-    "url" => $url,
-    "filename" => $fileList[$i]
-  ];
-}
-
-unset($year); unset($month); unset($day);
-$template = file_get_contents("templates/blog.html");
-
 function menu ($year, $month, $day, $minYear, $maxYear, $data) {
   $monthDict = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
   $menu = "<p class=\"h_font dates\">";
@@ -68,6 +41,33 @@ function menu ($year, $month, $day, $minYear, $maxYear, $data) {
   return "$menu</p>";
 }
 
+$fileList = glob("blog/data/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
+sort($fileList);
+$data = [];
+$minYear = 0;
+$maxYear = 0;
+$total = count($fileList);
+$indexFile = '';
+
+for ($i = $total - 1; $i >= 0; --$i) {
+  $year = substr($fileList[$i], 10, 4);
+  $month = substr($fileList[$i], 14, 2);
+  $day = substr($fileList[$i], 16, 2);
+  $url = createLink($year, $month, $day);
+  $i == 0 && ($minYear = $year) && ($indexFile = createLink($year, $month, $day));
+  $i == $total - 1 && ($maxYear = $year);
+
+  ! isset($data[$year]) && ($data[$year]["url"] = $url);
+  ! isset($data[$year][$month]) && ($data[$year][$month]["url"] = $url);
+  $data[$year][$month][$day] = [
+    "url" => $url,
+    "filename" => $fileList[$i]
+  ];
+}
+
+unset($year); unset($month); unset($day);
+$template = file_get_contents("templates/blog.html");
+
 foreach ($data as $year => $yearV) {
   foreach ($yearV as $month => $monthV) {
     if ($month == "url") {
@@ -79,14 +79,13 @@ foreach ($data as $year => $yearV) {
         continue;
       }
 
+      echo "Generating $filename\n";
       $filename = createLink($year, $month, $day);
       file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear, $data), $template)));
-
-      echo "Generating $filename\n";
     }
   }
 }
 
-copy($indexFile, "blog.html");
 echo "Creating index file\n";
+copy($indexFile, "blog.html");
 echo "DONE\n";
