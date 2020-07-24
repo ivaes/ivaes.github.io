@@ -26,7 +26,7 @@ function goBig(el) {
   modalImg.setAttribute("src", x);
   const y = el.querySelector('img').getAttribute("alt");
   captionText.innerHTML = y;
-  document.querySelector('.right_col').classList.add('modal_mode');
+  document.body.style.overflow = "hidden";
 }
 
 
@@ -36,14 +36,14 @@ var span = document.querySelector(".close");
 // When the user clicks on <span> (x), close the modal
 span && (span.onclick = function() { 
   modal.style.display = "none";
-  document.querySelector('.right_col').classList.remove('modal_mode');
+  document.body.style.overflow = "auto";
 });
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modalImg || event.target == modal) {
     modal.style.display = "none";
-    document.querySelector('.right_col').classList.remove('modal_mode');
+    document.body.style.overflow = "auto";
   }
 }
 
@@ -66,3 +66,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   });
 });
+
+
+
+function menuM(el) { 
+  if (el.innerHTML == 'X') {
+    document.querySelector('.menu').classList.remove('open');
+    document.body.style.overflow = "auto";
+    el.innerHTML = "|||";
+
+  } else {
+    document.querySelector('.menu').classList.add('open');
+    document.body.style.overflow = "hidden";
+    el.innerHTML = "X";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
