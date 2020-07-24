@@ -1,13 +1,13 @@
 <h1>Бар. День третий.</h1>
 <p>На улице жарища, а в номере хорошо и прохладно. Работать тут одно удовольствие!</p>   
 <div class="blog_pic">
-    <img src="images/2016-09-15_pic1.jpg">
+    <img src="/images/blog/2016-09-15_pic1.jpg">
 </div>
 <p>Меня на улицу манит возможность купаться в море. Вечером только прогулки по морю.</p>    
 <div class="blog_pic">
-    <img src="images/2016-09-15_pic2.jpg">  
+    <img src="/images/blog/2016-09-15_pic2.jpg">  
 </div>
 <p>Как же хорошо тут! Решили, что теперь будем жить только рядом с морем!</p>    
 <div class="blog_pic">
-    <img src="images/2016-09-15_pic3.jpg">  
+    <img src="/images/blog/2016-09-15_pic3.jpg">  
 </div>

@@ -1,7 +1,5 @@
 <?php
 
-global $mainLang = "ru";
-
 function createLink ($year, $month, $day, $lang) {
   return "blog/$lang/$year-$month-$day.html";
 }
@@ -11,14 +9,18 @@ function padlen ($s) {
   return $s;
 }
 
-function menu ($year, $month, $day, $minYear, $maxYear, $data) {
-  $monthDict = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+function menu ($year, $month, $day, $minYear, $maxYear, $data, $lang) {
+  $monthDict = [
+    'default' => ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"],
+    'ru' => ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"],
+  ];
+  $monthDictLang = isset($monthDict[$lang]) ? $lang : 'default';
   $menu = "<p class=\"h_font dates\">";
 
   for ($y = $minYear; $y < $maxYear + 1; ++$y) {
     $active = $y == $year ? " class=\"active\"" : "";
-    $url = isset($data[$y]) ? $data[$y]["url"] : "";
-    $menu .= "<a$active href=\"$url\">$y</a>";
+    $url = isset($data[$y]) ? ' href="' . $data[$y]["url"]. '"' : "";
+    $menu .= "<a$active$url>$y</a>";
   }
 
   $menu .= "</p><p class=\"h_font dates\">";
@@ -26,8 +28,8 @@ function menu ($year, $month, $day, $minYear, $maxYear, $data) {
   for ($m = 0; $m < 12; ++$m) {
     $pm = padlen($m + 1);
     $active = $pm == $month ? " class=\"active\"" : "";
-    $url = isset($data[$year][$pm]) ? $data[$year][$pm]["url"] : "";
-    $menu .= "<a$active href=\"$url\">{$monthDict[$m]}</a>";
+    $url = isset($data[$year][$pm]) ? 'href="' . $data[$year][$pm]["url"] . '"' : "";
+    $menu .= "<a$active$url>{$monthDict[$monthDictLang][$m]}</a>";
   }
 
   $menu .= "</p><p class=\"h_font dates\">";
@@ -36,15 +38,14 @@ function menu ($year, $month, $day, $minYear, $maxYear, $data) {
   for ($d = 1; $d < $numDays + 1; ++$d) {
     $pd = padlen($d);
     $active = $pd == $day ? " class=\"active\"" : "";
-    $url = isset($data[$year][$month][$pd]) ? $data[$year][$month][$pd]["url"] : "";
-    $menu .= "<a$active href=\"$url\">$d</a>";
+    $url = isset($data[$year][$month][$pd]) ? 'href="' . $data[$year][$month][$pd]["url"] . '"' : "";
+    $menu .= "<a$active$url>$d</a>";
   }
 
   return "$menu</p>";
 }
 
 function processLang ($lang) {
-  global $mainLang;
   $fileList = glob("blog/data/$lang/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
   sort($fileList);
   $data = [];
@@ -54,9 +55,9 @@ function processLang ($lang) {
   $indexFile = '';
 
   for ($i = $total - 1; $i >= 0; --$i) {
-    $year = substr($fileList[$i], 10, 4);
-    $month = substr($fileList[$i], 14, 2);
-    $day = substr($fileList[$i], 16, 2);
+    $year = substr($fileList[$i], 13, 4);
+    $month = substr($fileList[$i], 17, 2);
+    $day = substr($fileList[$i], 19, 2);
     $url = '/' . createLink($year, $month, $day, $lang);
     $i == 0 && ($minYear = $year) && ($indexFile = createLink($year, $month, $day, $lang));
     $i == $total - 1 && ($maxYear = $year);
@@ -85,16 +86,18 @@ function processLang ($lang) {
 
         $filename = createLink($year, $month, $day, $lang);
         echo "Generating $filename\n";
-        file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear, $data), $template)));
+        file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear, $data, $lang), $template)));
       }
     }
   }
 
-  if ($lang == $mainLang) {
+  if ($indexFile) {
     echo "Creating index file\n";
-    copy($indexFile, "blog.html");
+    copy($indexFile, "blog/$lang/index.html");
   }
-  echo "DONE\n";
+
+  echo "$lang verion DONE\n";
 }
 
 processLang("ru");
+processLang("en");
