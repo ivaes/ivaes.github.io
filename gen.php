@@ -28,7 +28,7 @@ function menu ($year, $month, $day, $minYear, $maxYear, $data, $lang) {
   for ($m = 0; $m < 12; ++$m) {
     $pm = padlen($m + 1);
     $active = $pm == $month ? " class=\"active\"" : "";
-    $url = isset($data[$year][$pm]) ? 'href="' . $data[$year][$pm]["url"] . '"' : "";
+    $url = isset($data[$year][$pm]) ? ' href="' . $data[$year][$pm]["url"] . '"' : "";
     $menu .= "<a$active$url>{$monthDict[$monthDictLang][$m]}</a>";
   }
 
@@ -38,7 +38,7 @@ function menu ($year, $month, $day, $minYear, $maxYear, $data, $lang) {
   for ($d = 1; $d < $numDays + 1; ++$d) {
     $pd = padlen($d);
     $active = $pd == $day ? " class=\"active\"" : "";
-    $url = isset($data[$year][$month][$pd]) ? 'href="' . $data[$year][$month][$pd]["url"] . '"' : "";
+    $url = isset($data[$year][$month][$pd]) ? ' href="' . $data[$year][$month][$pd]["url"] . '"' : "";
     $menu .= "<a$active$url>$d</a>";
   }
 
