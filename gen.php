@@ -1,7 +1,7 @@
 <?php
 
 function createLink ($year, $month, $day) {
-  return "blog-$year-$month-$day.html";
+  return "blog/$year-$month-$day.html";
 }
 
 function padlen ($s) {
@@ -53,7 +53,7 @@ for ($i = $total - 1; $i >= 0; --$i) {
   $year = substr($fileList[$i], 10, 4);
   $month = substr($fileList[$i], 14, 2);
   $day = substr($fileList[$i], 16, 2);
-  $url = createLink($year, $month, $day);
+  $url = '/' . createLink($year, $month, $day);
   $i == 0 && ($minYear = $year) && ($indexFile = createLink($year, $month, $day));
   $i == $total - 1 && ($maxYear = $year);
 
