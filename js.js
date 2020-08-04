@@ -49,7 +49,6 @@ window.onclick = function (event) {
 
 function sort(z) {
   var x = document.getElementsByClassName(z);
-  console.log(x[0]);
   var i;
 
   for (i = 0; i < x.length; i++) { 
@@ -67,8 +66,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 });
 
-
-
 function menuM(el) { 
   if (el.innerHTML == 'X') {
     document.querySelector('.menu').classList.remove('open');
@@ -81,14 +78,3 @@ function menuM(el) {
     el.innerHTML = "X";
   }
 }
-
-
-
-
-
-
-
-
-
-
-

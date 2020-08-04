@@ -14,7 +14,9 @@ function getName($filename, $section) {
 }
 
 $sections = ['photos', 'designs'];
+$mainSection = 'photos';
 $template = file_get_contents('templates/photos.js');
+$mainTemplate = file_get_contents('templates/main.js');
 
 foreach ($sections as $section) {
   $fileList = glob(getSectionPath($section) . '*.jpg');
@@ -26,9 +28,10 @@ foreach ($sections as $section) {
     $json[] = [
       'name' => $name,
       'thumb' => getSectionThumbPath($section) . $name . '.jpg',
-      'src' => $filename
+      'src' => getSectionPath($section) . $name . '.jpg'
     ];
   }
 
   file_put_contents("js/{$section}.js" ,str_replace('{photos}', json_encode($json), $template));
+  $section == $mainSection && file_put_contents("js/main.js" ,str_replace('{photos}', json_encode($json), $mainTemplate));
 }
