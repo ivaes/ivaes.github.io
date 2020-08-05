@@ -26,7 +26,7 @@ foreach ($sections as $section) {
     $name = getName($filename, $section);
 
     $json[] = [
-      'name' => $name,
+      'name' => "$name.",
       'thumb' => getSectionThumbPath($section) . $name . '.jpg',
       'src' => getSectionPath($section) . $name . '.jpg'
     ];
