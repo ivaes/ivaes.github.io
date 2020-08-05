@@ -84,6 +84,10 @@ a[href]:hover,
 			color: var(--blue2_color); 
 }
 
+a[href^="mailto"] {
+					color: var(--pink2_color); 
+}
+
 p {	
 	font-size: var(--height_1);
 	font-weight: 200;
