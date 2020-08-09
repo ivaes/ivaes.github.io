@@ -59,8 +59,8 @@ function processLang ($lang) {
     $month = substr($fileList[$i], 17, 2);
     $day = substr($fileList[$i], 19, 2);
     $url = '/' . createLink($year, $month, $day, $lang);
-    $i == 0 && ($minYear = $year) && ($indexFile = createLink($year, $month, $day, $lang));
-    $i == $total - 1 && ($maxYear = $year);
+    $i == 0 && ($minYear = $year);
+    $i == $total - 1 && ($maxYear = $year) && ($indexFile = createLink($year, $month, $day, $lang));
 
     ! isset($data[$year]) && ($data[$year]["url"] = $url);
     ! isset($data[$year][$month]) && ($data[$year][$month]["url"] = $url);
