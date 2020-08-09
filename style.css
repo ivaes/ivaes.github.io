@@ -543,6 +543,11 @@ p + .blog_pic {
 						margin-bottom: var(--height_1);
 }
 
+#cv_page .sub_menu.links a {
+								cursor: pointer;
+								display: table;
+}
+
 #cv_page .sub_menu a span {
 							display: inline-block;
 							vertical-align: baseline;
