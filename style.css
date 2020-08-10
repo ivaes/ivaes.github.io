@@ -595,6 +595,15 @@ p + .blog_pic {
 																margin-top: calc(var(--height_3) + var(--height_4));
 												}
 
+												#cv_page .left_col {
+																		flex: 35%;
+												}
+
+												#cv_page .right_col {
+																		flex: 65%;
+																		margin-top: 0; 
+												}
+
 												.stick {
 															width: var(--height_100);
 															height: auto;
@@ -611,9 +620,19 @@ p + .blog_pic {
 														align-items: flex-start;
 														margin-top: var(--height_0);
 												}
+
+												#cv_page .menu {
+																	display: initial;
+																	width: initial;
+																	margin-top: initial;
+												}
 												
 												.menu a {
 															margin: 0 var(--height_0);
+												}
+
+												#cv_page .menu a {
+																	margin: initial;
 												}
 
 												.sub_menu {
@@ -621,6 +640,14 @@ p + .blog_pic {
 																top: var(--height_3);
 																width: 100%;
 																margin-left: 0;
+												}
+
+												#cv_page .sub_menu {
+																		position: initial;
+																		top: auto;
+																		left: auto;
+																		margin-left: initial;
+																		width: auto;
 												}
 
 												.active + .sub_menu {	
@@ -746,6 +773,32 @@ p + .blog_pic {
 																								margin-right: var(--height_0);
 																		}	
 
+																		#cv_page .row {
+																						flex-direction: column-reverse;
+																		}
+
+																		#cv_page .logo {
+																							display: none;
+																		}
+
+																		#cv_page .inner.text {
+																								margin-top: 0;
+																		}
+
+																		#cv_page header {
+																							flex-wrap: wrap;
+																							margin-bottom: var(--height_0);
+																		}
+
+																		#cv_page header div {
+																								margin-left: 0;
+																		}
+
+																		#cv_page .insta {
+																							bottom: auto;
+																							position: relative;
+																		}
+
 																		#cv_page .menu .menu_ico {
 																									display: none;
 																		}	
@@ -765,13 +818,6 @@ p + .blog_pic {
 																								left: 0;
 																								padding-bottom: initial;
 																								margin-left: var(--height_1);
-																		}	
-
-																		#cv_page header {
-																							position: absolute;
-																						top: var(--m_height_0);
-																						left: 0;
-																						padding-bottom: var(--height_0);	
 																		}			
 }
 
@@ -781,6 +827,4 @@ p + .blog_pic {
 																			}
 }
 
-
-@media only screen and (orientation: portrait) and (max-width: 767px) { #cv_page { display: none; } }
 
