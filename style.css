@@ -98,7 +98,8 @@ a[href]:hover,
 
 a[href^="mailto"],
 #cv_page header a,
-#cv_page .insta a {
+#cv_page .insta a,
+.blog p a {
 					color: var(--pink2_color); 
 }
 
