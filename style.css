@@ -345,6 +345,7 @@ ul li:before {
 .calendar.scrolled {
 						flex-direction: row-reverse;
 						justify-content: flex-end;
+            pointer-events: none;
 }
 
 .calendar.scrolled .dates {
