@@ -1,66 +1,4 @@
-<!DOCTYPE html>
-<html> 
-
-<head>
-  <title>Li world blog</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="/images/li_logo.svg">
-  <link rel="apple-touch-icon" type="image/png" href="/images/li_logo.png">
-  <link rel="shortcut icon" type="image/png" href="/images/li_logo.png">  
-  <link rel=stylesheet type=text/css href="/style.css">
-  <link rel="stylesheet" href="https://use.typekit.net/tec1bmf.css">
-</head>
-
-<body>
-<DIV id="inner_page" class="wrap clear">
-		<div class="row">
-		<!-- left_col -->
-		<div class="left_col">
-			<div class="stick">
-				<!-- logo -->
-				<div class="clear">
-					<div class="logo"><a href="/index.html">Li</a></div>
-				</div>
-				<!-- /logo -->
-				<!-- menu -->
-				<div class="menu open1 clear">
-					<span class="menu_ico h_font" onclick="menuM(this)">|||</span>
-				  	<a class="h_font" href="/photos.html">Photos</a>
-				  	<a class="h_font" href="/designs.html">Designs</a>
-				  	<a class="h_font active">Blog</a>
-				  	<!-- sub_menu -->
-				  	<div class="sub_menu">
-				  		<a class="h_font active">English</a>
-				  		<a class="h_font" href="/blog/ru">Russian</a>
-				  	</div>
-				  	<!-- sub_menu -->
-				  	<a class="h_font" href="/about.html">About me</a>
-				</div>
-				<!-- /menu -->	
-				<!-- contacts -->
-				<div class="clear insta">
-					<div class="svg">
-						<a href="https://www.instagram.com/li_work/">
-							<svg>
-							  <rect rx="7"/>
-							  <rect rx="6"/>
-							  <rect rx="1.75"/>
-							</svg>
-						</a>
-					</div>
-				</div>
-				<!-- /contacts -->		
-			</div>
-		</div>
-		<!-- /left_col -->
-		<!-- right_col -->
-		<div class="right_col">
-			<div class="inner blog text">
-				<div class="calendar scrolled1">
-          <p class="h_font dates"><a class="active" href="/blog/en/2020-09-05.html">2020</a></p><p class="h_font dates"><a>january</a><a>february</a><a>march</a><a>april</a><a>may</a><a>june</a><a href="/blog/en/2020-07-17.html">july</a><a href="/blog/en/2020-08-29.html">august</a><a class="active" href="/blog/en/2020-09-05.html">september</a><a>october</a><a>november</a><a>december</a></p><p class="h_font dates"><a href="/blog/en/2020-09-01.html">1</a><a>2</a><a>3</a><a>4</a><a class="active" href="/blog/en/2020-09-05.html">5</a><a>6</a><a>7</a><a>8</a><a>9</a><a>10</a><a>11</a><a>12</a><a>13</a><a>14</a><a>15</a><a>16</a><a>17</a><a>18</a><a>19</a><a>20</a><a>21</a><a>22</a><a>23</a><a>24</a><a>25</a><a>26</a><a>27</a><a>28</a><a>29</a><a>30</a><a>31</a></p>
-				</div>
-        <h1>The source of the Volga river. Nilova pustyn.</h1>  
+<h1>The source of the Volga river. Nilova pustyn.</h1>  
 <p>Get up at 5 am to spend half of a day on the road - sounds like us.</p> 
 <p>We haven't been anywhere for so long that we have forgotten where we previously used to stop to have breakfast. So, accidentally, breakfast is again in Kuvshinovo. But it's so nice and pretty on the lake taht we can stop here every time, it can't get boring.</p> 
 <div class="blog_pic">
@@ -118,13 +56,3 @@
 </div>
 <p>A bit sad that all the interesting things in the territory are closed for the public.</p>
 <p>And, by the way, Nilova pustyn isn't the place where we were bathing. So the search continues...</p>
-
-			</div>
-		</div>			
-		<!-- /right_col -->		
-	</div>
-</DIV>
-<script type="text/javascript" src="/js.js"></script>
-<script type="text/javascript" src="/js/blog.js"></script>
-</body>
-</html>
