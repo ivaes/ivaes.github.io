@@ -550,6 +550,10 @@ p + .blog_pic {
 								display: table;
 }
 
+#cv_page .sub_menu.links a[href] {
+									color: var(--pink2_color);
+}
+
 #cv_page .sub_menu a span {
 							display: inline-block;
 							vertical-align: baseline;
