@@ -91,7 +91,8 @@ a[href]:hover,
 .close:hover,
 .menu .menu_ico:hover,
 #cv_page header a:hover,
-#cv_page .insta a:hover
+#cv_page .insta a:hover,
+#cv_page .sub_menu.links a[href]
  {	
 			color: var(--blue2_color); 
 }
