@@ -86,7 +86,9 @@ function processLang ($lang) {
 
         $filename = createLink($year, $month, $day, $lang);
         echo "Generating $filename\n";
-        file_put_contents($filename, str_replace("{content}", file_get_contents($dayV["filename"]), str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear, $data, $lang), $template)));
+        $cont = file_get_contents($dayV['filename']);
+        $title = trim(strip_tags(explode("\n", $cont)[0]));
+        file_put_contents($filename, str_replace(["{title}", "{content}"], [$title, $cont], str_replace("{menu}", menu($year, $month, $day, $minYear, $maxYear, $data, $lang), $template)));
       }
     }
   }
