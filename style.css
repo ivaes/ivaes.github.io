@@ -302,7 +302,8 @@ ul li:before {
 }
 
 .text.rus p,
-.text.rus h1 {
+.text.rus h1,
+.text.rus h1 * {
 				font-family: "rusFont";
 }
 
