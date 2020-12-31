@@ -315,7 +315,8 @@ ol li:before {
 
 .text.rus p,
 .text.rus h1,
-.text.rus h1 * {
+.text.rus h1 *,
+.text.rus ol * {
 				font-family: "rusFont";
 }
 
