@@ -136,12 +136,23 @@ ol {
 		list-style: none;
 }
 
-ul li {
+ul li,
+ol li {
 		font-size: var(--height_1);
 }
 
 ul li:before {
 				content: "•";
+				margin-right: var(--height_0);
+				color: var(--text2_color); 
+}
+
+ol li {
+		counter-increment: ol_index;
+}
+
+ol li:before {
+				content: counter(ol_index);
 				margin-right: var(--height_0);
 				color: var(--text2_color); 
 }
