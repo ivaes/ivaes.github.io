@@ -152,7 +152,7 @@ ol li {
 }
 
 ol li:before {
-				content: counter(ol_index);
+				content: counter(ol_index)'.';
 				margin-right: var(--height_0);
 				color: var(--text2_color); 
 }
