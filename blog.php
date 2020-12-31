@@ -33,7 +33,7 @@ function menu ($year, $month, $day, $minYear, $maxYear, $data, $lang) {
   }
 
   $menu .= "</p><p class=\"h_font dates\">";
-  $numDays = date("t", mktime(0, 0, 0, intval($month) - 1, 10, $year));
+  $numDays = cal_days_in_month(CAL_GREGORIAN, intval($month), $year);
 
   for ($d = 1; $d < $numDays + 1; ++$d) {
     $pd = padlen($d);
