@@ -129,7 +129,8 @@ s::after {
 			top: 60%;
 }
 
-ul {
+ul,
+ol {
 		margin-left: var(--height_1);
 		margin-bottom: var(--height_1);
 		list-style: none;
