@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * blog generator
+ * me@asafonov.org
+ */
+
 function createLink ($year, $month, $day, $lang) {
   return "blog/$lang/$year-$month-$day.html";
 }
