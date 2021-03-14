@@ -1,3 +1,0 @@
-<h1>Apparent simplicity.</h1>  
-<p>A new function was added into the <a href="https://play.google.com/store/apps/details?id=org.asafonov.spass" target="_blank">Spass</a> — show password. Initially it wasn’t planned, we didn’t think it would be needed. But users ask for it, so it is needed.</p>
-<p>My task was to nicely combine this new function and already existing design. The solution seems simple and obvious, but there are many different approaches behind it: from adding a new button to popup messages. As they say, all the great things are simple. And now I understand that behind every apparent simplicity there is somebody’ hard work.</p>
